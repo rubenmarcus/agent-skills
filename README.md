@@ -43,52 +43,89 @@ The collaboration method was generalized from the author's ECDSA work. Planning,
 
 These links pin the inspected revisions. Their content stays in the upstream repositories. This collection makes no effectiveness ranking against either suite.
 
-## Install or try one workflow
+## Install one skill
 
-Clone the collection first:
+Each skill installs on its own. Start with the one you need; the full collection is optional. Read its `SKILL.md` and references before enabling it.
+
+### Choose a skill and agent
+
+From your target project's root, choose **one** command:
+
+```sh
+# Codex: install only aeo in this project
+npx skills add rubenmarcus/agent-skills --skill aeo --agent codex --copy
+```
+
+```sh
+# Claude Code: install only aeo in this project
+npx skills add rubenmarcus/agent-skills --skill aeo --agent claude-code --copy
+```
+
+Replace `aeo` with any name in the [workflow table](#choose-a-workflow). To list the available skills without installing them:
+
+```sh
+npx skills add rubenmarcus/agent-skills --list
+```
+
+These commands use the optional [Vercel skills CLI](https://github.com/vercel-labs/skills), which requires Node.js 22.20+. It installs into the current project by default: `.agents/skills/aeo/` for Codex or `.claude/skills/aeo/` for Claude Code. `--copy` copies the selected folder and its supporting files. Check the destination and any overwrite warning before confirming. This collection itself has no npm release.
+
+Start or refresh the client session if needed. In Codex, invoke `$aeo`; in Claude Code, invoke `/aeo`. Follow [Codex's project skill discovery](https://learn.chatgpt.com/docs/build-skills) or [Claude Code's skill documentation](https://code.claude.com/docs/en/skills) for your installed client.
+
+### Manual installation of one skill
+
+You can also copy a folder without the CLI. Clone the collection first:
 
 ```sh
 git clone https://github.com/rubenmarcus/agent-skills.git
 cd agent-skills
 ```
 
-No installation script runs automatically. Review a skill and its references before enabling it. The Git hook is an inert example inside a skill; this package does not activate it.
-
-### Codex
-
-For an isolated project trial, copy one selected folder into the target project's `.agents/skills/`. From this collection's root, after choosing an existing target directory:
+From this collection's root, choose an existing target project and the skill name. For **Codex**:
 
 ```sh
 target_project=/absolute/path/to/your-project
-mkdir -p "$target_project/.agents/skills"
-test ! -e "$target_project/.agents/skills/critical-adversarial-review" &&
-  cp -R skills/critical-adversarial-review "$target_project/.agents/skills/"
+skill_name=aeo
+destination="$target_project/.agents/skills/$skill_name"
+test -d "$target_project" &&
+  test -f "skills/$skill_name/SKILL.md" &&
+  mkdir -p "$target_project/.agents/skills" &&
+  mkdir "$destination" &&
+  cp -R "skills/$skill_name/." "$destination/"
 ```
 
-Start or refresh the agent session as required by the installed client, then invoke `$critical-adversarial-review` with the actual revision and scope. Preserve any folder already present instead of overwriting it. The root `plugin.json` also provides portable plugin metadata for hosts that support it.
+For **Claude Code**, use its project directory:
 
-This follows [Codex's documented project skill discovery](https://learn.chatgpt.com/docs/build-skills). Plugin metadata does not mean this repository has been listed in OpenAI's plugin directory.
+```sh
+target_project=/absolute/path/to/your-project
+skill_name=aeo
+destination="$target_project/.claude/skills/$skill_name"
+test -d "$target_project" &&
+  test -f "skills/$skill_name/SKILL.md" &&
+  mkdir -p "$target_project/.claude/skills" &&
+  mkdir "$destination" &&
+  cp -R "skills/$skill_name/." "$destination/"
+```
 
-### Claude Code
+`mkdir "$destination"` refuses an existing destination, including a symlink, before any files are copied. If it fails, stop and inspect the existing installation. Copy the whole skill folder so its local references stay available.
 
-Load this checkout for a local session, using its absolute path:
+### Optional: load all 11 skills in Claude Code
+
+The plugin bundles the **full collection**. For one local session, load your checkout by absolute path:
 
 ```sh
 claude --plugin-dir /absolute/path/to/agent-skills
 ```
 
-Ask Claude to use the packaged `critical-adversarial-review` skill for a bounded revision. Plugin skills may appear under the plugin namespace; check the installed client's skill list. No global configuration is changed by the command shown here.
-
-To install through Claude Code's marketplace instead, run these commands inside a Claude session:
+Or install the full plugin through the marketplace, inside a Claude session:
 
 ```text
 /plugin marketplace add rubenmarcus/agent-skills
 /plugin install rubenmarcus-skills@rubenmarcus
 ```
 
-The plugin name and marketplace name come from this repository's manifests. Choose the desired installation scope in the client. See [Claude Code's installation documentation](https://code.claude.com/docs/en/discover-plugins) for permissions and available scopes.
+Choose the installation scope in the client. Plugin skills may use the plugin namespace; check the client's skill list. See [Claude Code's plugin installation documentation](https://code.claude.com/docs/en/discover-plugins) for permissions and scopes. The root `plugin.json` supplies portable metadata for compatible hosts; this repository is not listed in OpenAI's plugin directory.
 
-For either agent, tool access, permissions, and project instructions still come from the host. These Markdown workflows do not ship an orchestration runtime, install aeo.js, or start background agents.
+For either agent, tools, permissions, and project instructions come from the host. These workflows do not install aeo.js or start background agents. The Git hook example stays inactive until you configure it, preserving existing hooks.
 
 ## Validate and package
 

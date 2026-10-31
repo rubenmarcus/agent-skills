@@ -19,11 +19,12 @@ Done for this local preparation: portable skills and plugin manifests, source pr
 
 ## Current state
 
-- Branch: `codex/skills-package-20261031`, tracking `origin/main`. Public remote: `https://github.com/rubenmarcus/agent-skills.git`; default branch `main`.
-- Implementation checkpoint: `b78f8872a0406132a1ac9dbd374ff85017f9abcc` (`Add portable agent workflows and article draft`). A following documentation checkpoint records this completion state; use `git log -2 --oneline` to recover both.
-- Inspected Ralph Starter at `ee9c7946c386bb9cecc4001a052e29ffa53f8f9a` (0.5.2).
-- Inspected aeo.js at `9955ce8d9ee77d9ca0c6cd4e26e047a1081697a1` (0.0.17).
-- Confirmed Addy Osmani and Matt Pocock's public collections as distribution references, without copying their skills.
+- Current authorized follow-up (2026-10-31): correct the paired article heading to `Comecei pelos modos de erro`, make installation of one selected skill clear for both clients, update both READMEs, open PRs and merge after scoped checks. The user explicitly authorized both PR creation and merge before leaving.
+- Collection branch: `docs/skill-by-skill-install-20261031`, baseline public main `8068d0fc537c7c1b380f9704ac5ce88873538e6d`. Remote: `https://github.com/rubenmarcus/agent-skills.git`.
+- Paired portfolio branch: `blog/skill-by-skill-install-20261031` in `../portfolio-agent-skills`, baseline main `d65c4ed2bd30149498f0c02caee07ab6e172bc8b`. PR #39 has already merged and both article routes were verified in production. Preserve the unrelated dirty original portfolio checkout.
+- Installation scope: one project skill using optional Vercel `skills` CLI or manual whole-folder copies. Claude's full 11-skill plugin remains an explicit optional bundle. No global skills, hooks or plugins are activated.
+- Current local verification artifacts: `artifacts/pilot-runs/skill-by-skill-20261031/` (ignored). Final merged SHAs, PRs, CI and production evidence will be recorded in `FINAL-STATE.md` there. Portfolio owns its paired article ledger and browser evidence.
+- Original implementation checkpoint: `b78f8872a0406132a1ac9dbd374ff85017f9abcc`. Source revisions and pilot outcomes below are historical validated milestones, not the current branch state.
 
 ## Milestones and validation
 
@@ -45,11 +46,11 @@ Done for this local preparation: portable skills and plugin manifests, source pr
 
 ## Next concrete step
 
-Public collection and the authorized three-case pilot are complete at `https://github.com/rubenmarcus/agent-skills`; see the final milestone below. The paired portfolio articles are in PR #39, with green CI and a verified protected preview. Next: resolve any future CodeRabbit findings and review that PR. Production merge/publication and the full 22-case Codex/Claude behavioral evaluation remain separate work.
+Validate the exact README copy commands and selective CLI installation in disposable projects, run collection checks and review the affected diff. Open the collection PR and the paired portfolio PR, request current-head review, merge verified heads using the user's authorization, then verify CI and public article routes. Record final identifiers in the ignored completion checkpoint above.
 
 ## Deferred work
 
-- Production publication of the portfolio articles, profile pinning, and npm publishing. Public repository creation/push is complete.
+- Profile pinning and npm publishing. Portfolio articles were published through PR #39; this follow-up authorizes their correction and publication.
 - Full Codex and Claude behavioral evaluation on real tasks.
 - Scanrepo-specific extraction and a generic bilingual publishing skill can follow once the first package is reviewed.
 
@@ -99,3 +100,11 @@ Public collection and the authorized three-case pilot are complete at `https://g
 - Published result checkpoint `57554a21bd7a4df75884b204d08fb0344ebc90a0` passed collection CI run `41158481090`. The public report rendered successfully in Ego Lite; the 12 small source patches, summaries and calibration are public, while raw traces remain ignored.
 - Paired portfolio content checkpoint `a55aa8bee56a65dd097ba0c12d770dd05a76b2a4` passed CI run `41158594113` and Vercel Preview. Authenticated HTTP requests verified both localized titles, canonical URLs, score tables, report links and pinned upstream links. PR #39's description now covers the final scope and AI assistance. No CodeRabbit review/threads or reply to the existing request; no production merge/deploy, npm release, global activation or catalog expansion performed.
 - This documentation checkpoint closes the authorized positioning and three-case pilot follow-up. Next: portfolio PR review and any future review findings. The 22-case Codex/Claude plan remains unexecuted; one completed session per arm does not establish general effectiveness or an upstream ranking.
+
+## Individual installation verification (2026-10-31)
+
+- Both READMEs now recommend selecting one skill with `--skill` and `--agent`, using the optional Vercel CLI. Node.js 22.20+ is documented for that CLI; the collection still has no npm release. Full plugin installation is labeled as the optional 11-skill bundle.
+- Ran the exact manual shell blocks extracted from both README languages for both clients and all 11 skills (44 copies). Every file's relative path and SHA-256 matched its source folder, including supporting references. Existing destination directories, files and dangling symlinks were refused; sibling skill files stayed unchanged.
+- Real `skills@1.7.4` discovery listed all 11 skills. Installed `aeo` then `critical-adversarial-review` independently for Codex and Claude Code in disposable projects; copied content matched, existing sibling files survived and other collection skills were absent. Automatic confirmation was used only in disposable validation, not the public commands. Telemetry was disabled for validation.
+- `npm run check` passed: 11 skills, 31 files, manifests, links and 22 explicitly unexecuted evaluation cases. Verification report and command logs: `artifacts/pilot-runs/skill-by-skill-20261031/installation-verification.json`. These checks validate file layout/content, not native client routing or model behavior.
+- Next: scoped PRs, current-head review, authorized merge and public CI/publication verification. Final state will be in the ignored `FINAL-STATE.md` alongside that report.

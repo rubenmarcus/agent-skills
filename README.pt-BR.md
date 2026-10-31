@@ -41,46 +41,89 @@ As [skills do Matt Pocock](https://github.com/mattpocock/skills) e o [agent-skil
 
 Os links fixam as revisões inspecionadas. O conteúdo continua nos repositórios de origem. Esta coleção não tem uma comparação de eficácia contra essas suites.
 
-## Instalação
+## Instale uma skill por vez
+
+Cada skill pode ser instalada separadamente. Comece pela que você precisa; o pacote completo é opcional. Leia o `SKILL.md` e as referências antes de habilitá-la.
+
+### Escolha a skill e o agente
+
+Na raiz do projeto onde você quer usar a skill, escolha **um** comando:
+
+```sh
+# Codex: instalar só aeo neste projeto
+npx skills add rubenmarcus/agent-skills --skill aeo --agent codex --copy
+```
+
+```sh
+# Claude Code: instalar só aeo neste projeto
+npx skills add rubenmarcus/agent-skills --skill aeo --agent claude-code --copy
+```
+
+Troque `aeo` por qualquer nome da [tabela de skills](#escolha-pelo-problema). Para listar as disponíveis sem instalar:
+
+```sh
+npx skills add rubenmarcus/agent-skills --list
+```
+
+Os comandos usam a [CLI skills da Vercel](https://github.com/vercel-labs/skills), uma ferramenta opcional que exige Node.js 22.20+. Por padrão, ela instala no projeto atual: `.agents/skills/aeo/` para Codex ou `.claude/skills/aeo/` para Claude Code. `--copy` copia a pasta escolhida e os arquivos de apoio. Confira o destino e qualquer aviso de sobrescrita antes de confirmar. Esta coleção continua sem release próprio no npm.
+
+Inicie ou atualize a sessão do cliente se necessário. No Codex, invoque `$aeo`; no Claude Code, `/aeo`. Consulte a [descoberta de skills do Codex](https://learn.chatgpt.com/docs/build-skills) ou a [documentação de skills do Claude Code](https://code.claude.com/docs/en/skills) conforme o cliente instalado.
+
+### Instalação manual de uma skill
+
+Você também pode copiar uma pasta sem a CLI. Primeiro, clone a coleção:
 
 ```sh
 git clone https://github.com/rubenmarcus/agent-skills.git
 cd agent-skills
 ```
 
-Leia a skill e suas referências antes de habilitá-la. O pacote não executa instaladores automaticamente. O exemplo de hook Git fica inativo até você configurá-lo.
-
-### Codex
-
-Para experimentar uma skill em um projeto existente, copie a pasta escolhida para `.agents/skills/`, a partir da raiz desta coleção:
+Na raiz desta coleção, escolha um projeto existente e o nome da skill. Para **Codex**:
 
 ```sh
 target_project=/caminho/absoluto/do/seu-projeto
-mkdir -p "$target_project/.agents/skills"
-test ! -e "$target_project/.agents/skills/critical-adversarial-review" &&
-  cp -R skills/critical-adversarial-review "$target_project/.agents/skills/"
+skill_name=aeo
+destination="$target_project/.agents/skills/$skill_name"
+test -d "$target_project" &&
+  test -f "skills/$skill_name/SKILL.md" &&
+  mkdir -p "$target_project/.agents/skills" &&
+  mkdir "$destination" &&
+  cp -R "skills/$skill_name/." "$destination/"
 ```
 
-Preserve qualquer pasta já instalada. Inicie ou atualize a sessão conforme o cliente e invoque `$critical-adversarial-review` com a revisão e o escopo reais. A [documentação do Codex](https://learn.chatgpt.com/docs/build-skills) descreve a descoberta de skills por projeto. O `plugin.json` fornece metadados para hosts compatíveis; a coleção não foi listada no diretório de plugins da OpenAI.
+Para **Claude Code**, use a pasta de projeto dele:
 
-### Claude Code
+```sh
+target_project=/caminho/absoluto/do/seu-projeto
+skill_name=aeo
+destination="$target_project/.claude/skills/$skill_name"
+test -d "$target_project" &&
+  test -f "skills/$skill_name/SKILL.md" &&
+  mkdir -p "$target_project/.claude/skills" &&
+  mkdir "$destination" &&
+  cp -R "skills/$skill_name/." "$destination/"
+```
 
-Para carregar o checkout em uma sessão:
+`mkdir "$destination"` recusa um destino já existente, inclusive um link simbólico, antes de copiar arquivos. Se falhar, pare e confira a instalação existente. Copie a pasta inteira da skill para manter as referências locais disponíveis.
+
+### Opcional: carregar as 11 skills no Claude Code
+
+O plugin reúne a **coleção completa**. Para uma sessão local, carregue o checkout pelo caminho absoluto:
 
 ```sh
 claude --plugin-dir /caminho/absoluto/para/agent-skills
 ```
 
-Ou instale pelo marketplace dentro de uma sessão do Claude:
+Ou instale o plugin completo pelo marketplace, dentro de uma sessão do Claude:
 
 ```text
 /plugin marketplace add rubenmarcus/agent-skills
 /plugin install rubenmarcus-skills@rubenmarcus
 ```
 
-Escolha o escopo no cliente. Confira a [documentação do Claude Code](https://code.claude.com/docs/en/discover-plugins) para permissões e escopos disponíveis.
+Escolha o escopo de instalação no cliente. Skills de plugin podem usar o namespace do plugin; confira a lista no cliente. A [documentação de instalação de plugins do Claude Code](https://code.claude.com/docs/en/discover-plugins) explica permissões e escopos. O `plugin.json` da raiz fornece metadados para hosts compatíveis; a coleção não foi listada no diretório de plugins da OpenAI.
 
-Os mesmos arquivos `SKILL.md` atendem aos dois agentes. Ferramentas, permissões e instruções de projeto continuam vindo do ambiente. A coleção não instala aeo.js nem inicia agentes em segundo plano.
+Nos dois agentes, ferramentas, permissões e instruções de projeto vêm do ambiente. Os workflows não instalam aeo.js nem iniciam agentes em segundo plano. O exemplo de hook Git fica inativo até você configurá-lo, preservando os hooks existentes.
 
 ## Exemplos de uso
 
