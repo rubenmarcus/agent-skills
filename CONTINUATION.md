@@ -60,6 +60,9 @@ Public repository creation and push completed on 2026-10-31 at `https://github.c
 - Portfolio isolated branch: `blog/portable-agent-skills-pt-en`, base `6bc75b58bbeebb84ac78b0adc04aeba2f3cd3dd1`. Shared content key `portable-agent-skills`; its project ledger is `docs/agent-skills-article-continuation.md`.
 - Prepared English and Brazilian Portuguese READMEs, public Git/Claude marketplace installation, package repository metadata, and CI for structural, hook, and pack checks.
 - Checked official Codex discovery and Claude marketplace documentation. Public Git distribution does not imply OpenAI directory listing or a full real-agent evaluation.
-- Public remote created and initial code pushed successfully at `6b6af62`. GitHub API confirms `isPrivate: false` and default branch `main`. Final CI/fresh-clone verification and portfolio article review are the next steps.
+- Public remote created and initial code pushed successfully at `6b6af62`. GitHub API confirms `isPrivate: false` and default branch `main`. Initial CI and fresh-clone verification are complete. The portfolio article is in review.
 
 - Resume validation passed: `npm run check` (11 skills, 31 files, 22 unexecuted cases), `npm run check:hook` (syntax, missing scanner, arguments and 0/1/42 exit propagation), and strict Claude marketplace validation. Full current Git history passed gitleaks with 100 percent redaction. Dry-run pack: 42 files, 27,054 bytes before final ledger text.
+
+- Public verification milestone: a fresh unauthenticated HTTPS clone at `b39c0dc` passed `npm run check` and `npm run check:hook`. GitHub Actions runs `41152451560` (`6b6af62`) and `41152471604` (`b39c0dc`) both completed successfully. Public repo page and files were also inspected in Ego Lite.
+- Paired portfolio content was committed at `26c8ae3`, with its evidence ledger at `a8e4863`. Both language pages, shared cover and language navigation were exercised locally. The portfolio owns its separate PR and deployment status; this collection does not publish the articles.
