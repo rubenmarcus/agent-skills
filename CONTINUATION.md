@@ -2,9 +2,9 @@
 
 ## Objective and definition of done
 
-Prepare a reviewable open-source skills collection for Codex and Claude Code, plus a Portuguese article explaining the engineering methods. Draw on the author's real workflows in CORO SOLTO, research, Ralph Starter, Scanrepo, portfolio, and aeo.js. Generalize the ECDSA collaboration method. Public publication, npm release, profile pinning, and editing other projects are separate actions.
+Prepare a reviewable open-source skills collection for Codex and Claude Code, plus Brazilian Portuguese and English articles in the portfolio explaining the engineering methods. Draw on the author's real workflows in CORO SOLTO, research, Ralph Starter, Scanrepo, portfolio, and aeo.js. Generalize the ECDSA collaboration method. The user authorized public repository creation and portfolio article integration on 2026-10-31. Production deployment, npm release, and profile pinning remain separate actions.
 
-Done for this local preparation: portable skills and plugin manifests, source provenance, installation instructions, article draft, package validation, useful isolated checks, and a recoverable Git checkpoint. Report structural validation separately from real-agent behavioral validation and public availability.
+Done for this local preparation: portable skills and plugin manifests, source provenance, installation instructions, paired portfolio articles, package validation, useful isolated checks, and a recoverable Git checkpoint. Report structural validation separately from real-agent behavioral validation and public availability.
 
 ## Accepted decisions
 
@@ -52,3 +52,14 @@ Local preparation is complete and recoverable in Git. Next: review the collectio
 - Public repository creation/push, article publication, profile pinning, and npm publishing.
 - Full Codex and Claude behavioral evaluation on real tasks.
 - Scanrepo-specific extraction and a generic bilingual publishing skill can follow once the first package is reviewed.
+
+## Resume milestone: public repo and portfolio articles (2026-10-31)
+
+- Recovered the complete preceding objective and inspected the clean baseline at `3d05053054178d5d9668e98ea0089d81e70044a1`.
+- User correction accepted: the article belongs in the portfolio and must have PT-BR and English versions. Retired the draft under `articles/`; Git preserves the original.
+- Portfolio isolated branch: `blog/portable-agent-skills-pt-en`, base `6bc75b58bbeebb84ac78b0adc04aeba2f3cd3dd1`. Shared content key `portable-agent-skills`; its project ledger is `docs/agent-skills-article-continuation.md`.
+- Prepared English and Brazilian Portuguese READMEs, public Git/Claude marketplace installation, package repository metadata, and CI for structural, hook, and pack checks.
+- Checked official Codex discovery and Claude marketplace documentation. Public Git distribution does not imply OpenAI directory listing or a full real-agent evaluation.
+- Public remote creation and final validation are the next steps. Earlier deferred-state statements above describe the historical baseline.
+
+- Resume validation passed: `npm run check` (11 skills, 31 files, 22 unexecuted cases), `npm run check:hook` (syntax, missing scanner, arguments and 0/1/42 exit propagation), and strict Claude marketplace validation. Full current Git history passed gitleaks with 100 percent redaction. Dry-run pack: 42 files, 27,054 bytes before final ledger text.

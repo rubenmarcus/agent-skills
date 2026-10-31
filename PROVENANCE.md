@@ -26,6 +26,6 @@ CORO SOLTO's source is AGPL-3.0; Ralph Starter and aeo.js identify as MIT. This 
 
 [Addy Osmani's agent-skills](https://github.com/addyosmani/agent-skills) and [Matt Pocock's skills](https://github.com/mattpocock/skills) informed the idea of a focused repository with discoverable skill folders and plugin metadata. Their skill content is not copied or bundled.
 
-Manifest layouts follow [OpenAI's plugin packaging documentation](https://developers.openai.com/plugins/build/plugins) and [Claude Code's manifest reference](https://code.claude.com/docs/en/plugins-reference). Installation through a future public GitHub URL is intentionally not advertised as available before publication.
+Manifest layouts follow [OpenAI's plugin packaging documentation](https://developers.openai.com/plugins/build/plugins) and [Claude Code's manifest reference](https://code.claude.com/docs/en/plugins-reference). Installation instructions also follow [Codex's local skill discovery](https://learn.chatgpt.com/docs/build-skills) and [Claude Code's marketplace installation](https://code.claude.com/docs/en/discover-plugins), checked on 2026-10-31. A public Git repository is distinct from a listing in a hosted plugin directory.
 
 Third-party research suites, bundled platform skills, and other authors' packages remain external dependencies or recommendations subject to their own terms. Personal communication workflows and project-specific cover generation are outside this collection's scope.

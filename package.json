@@ -5,6 +5,9 @@
   "description": "Portable engineering skills for coding agents",
   "license": "MIT",
   "author": "Ruben Marcus",
+  "repository": { "type": "git", "url": "https://github.com/rubenmarcus/agent-skills.git" },
+  "homepage": "https://github.com/rubenmarcus/agent-skills#readme",
+  "bugs": { "url": "https://github.com/rubenmarcus/agent-skills/issues" },
   "engines": { "node": ">=20" },
   "scripts": {
     "check": "node scripts/check.mjs",
@@ -18,6 +21,7 @@
     "scripts/check-hook.py",
     "evals/scenarios.json",
     "README.md",
+    "README.pt-BR.md",
     "PROVENANCE.md",
     "LICENSE"
   ]
