@@ -1,0 +1,404 @@
+{
+  "date": "2026-10-31",
+  "client": "Claude Code 2.1.280",
+  "model": "claude-opus-5-5[1m]",
+  "effort": "medium",
+  "nativeSkillRoutingTested": false,
+  "upstreamCollectionsTested": false,
+  "scope": "Three synthetic tasks, one execution per arm in each of two frozen rounds. Round 2 repeats all pairs after symmetric tool guidance. Unknown sessions remain unscored.",
+  "rounds": [
+    {
+      "round": 1,
+      "protocolFile": "protocol.json",
+      "sourceRevision": "66f7b1ad514acb350f4ae239cc0dfb086221b52b",
+      "protocolSha256": "0408e292000858709c1d981c88df8d31c795f5f9abdde39b4528140b2ff54e02",
+      "runnerSha256": "54d3bbff0ab4ad7ad5aa5a37d156c4a6227f882519cff95dcf232a14598f6bf2",
+      "aeoVersion": "0.0.16",
+      "sessions": [
+        {
+          "case": "gates",
+          "arm": "baseline",
+          "status": "unknown",
+          "elapsedSeconds": 32.52,
+          "clientVersion": "2.1.280 (Claude Code)",
+          "model": "claude-opus-5-5[1m]",
+          "modelUsage": [
+            "claude-opus-5-5[1m]"
+          ],
+          "fixtureSha256": "4c5e28080c8ffcdde44fc85983198c7415d58e3700a4627a91f31dcfd42db567",
+          "promptSha256": "4d12617924b1360e3ac6531976fae7af0e7fa22cc2c1c17b051ba9fb0d5953d7",
+          "skillTextSha256": null,
+          "alteredFixedFiles": [],
+          "toolCalls": 8,
+          "terminalSubtype": "success",
+          "grading": null,
+          "permissionDenialCount": 1,
+          "unscoredReason": "Denied tool requests under the frozen rule",
+          "candidatePatch": "evidence/round-1-gates-baseline.patch",
+          "candidateSha256": "6d08e62dae5f7f415a7ff1a9aceb360936c141ebf8051ac7831f3a71f4d1330b",
+          "candidatePatchSha256": "2f9a4bac300ecfc548b1a9b4239ecf1f27fb8b0dea99e314b3a0e3fc0441c2df",
+          "rawTraceSha256": "802ea3e3943032fa585a303762015ac8c76e69a44be1cc07a81adf3263ad878d"
+        },
+        {
+          "case": "gates",
+          "arm": "skill",
+          "status": "unknown",
+          "elapsedSeconds": 53.91,
+          "clientVersion": "2.1.280 (Claude Code)",
+          "model": "claude-opus-5-5[1m]",
+          "modelUsage": [
+            "claude-opus-5-5[1m]"
+          ],
+          "fixtureSha256": "4c5e28080c8ffcdde44fc85983198c7415d58e3700a4627a91f31dcfd42db567",
+          "promptSha256": "5e33a7aea326d50501a861369c7c64f9e37acad7f9dd49892f317b2ee77d7f55",
+          "skillTextSha256": "a6f17614faf4ce613b410010d670dfbbe5c74068c93bd3e7d5b6746fb4bf4546",
+          "alteredFixedFiles": [],
+          "toolCalls": 13,
+          "terminalSubtype": "success",
+          "grading": null,
+          "permissionDenialCount": 2,
+          "unscoredReason": "Denied tool requests under the frozen rule",
+          "candidatePatch": "evidence/round-1-gates-skill.patch",
+          "candidateSha256": "a64ff116fdfd19ddc8c71bb94d0d497704a2aef491cc293c57f3d5360081c1c0",
+          "candidatePatchSha256": "de4ea3f04f232ba1512aa4146ca0f27395e41a7157f0326b6a7b1c05692e5696",
+          "rawTraceSha256": "d6811fdefec967dccc0ae943623f43b2a7ca123a7cb2daaf4b76abb9e808cfeb"
+        },
+        {
+          "case": "gauntlet",
+          "arm": "skill",
+          "status": "unknown",
+          "elapsedSeconds": 73.52,
+          "clientVersion": "2.1.280 (Claude Code)",
+          "model": "claude-opus-5-5[1m]",
+          "modelUsage": [
+            "claude-opus-5-5[1m]"
+          ],
+          "fixtureSha256": "52513162285d9107e979af58733bb8cb8ca7c98ff8fb3c2c2dea5f308d27c724",
+          "promptSha256": "5c33bb8e9d70137a4363e51c47337884dba83b574810168a1e096915d79a1933",
+          "skillTextSha256": "b807c50a1fded489380b10cb4a70b66579639f309d5c04b5a101aa7b1c912073",
+          "alteredFixedFiles": [],
+          "toolCalls": 13,
+          "terminalSubtype": "success",
+          "grading": null,
+          "permissionDenialCount": 2,
+          "unscoredReason": "Denied tool requests under the frozen rule",
+          "candidatePatch": "evidence/round-1-gauntlet-skill.patch",
+          "candidateSha256": "2a1c37113130383a00750dea9f19bee4be4c41110cdec99936e354bc7105b159",
+          "candidatePatchSha256": "6ced4239989bc48ea9b8ca3f3f6f98a382cd2265e98eb175a03ab71ca2f7634b",
+          "rawTraceSha256": "c91f92c123f72130d6ed785a50c48084e41071ac522073b3a9f583778882a5a9"
+        },
+        {
+          "case": "gauntlet",
+          "arm": "baseline",
+          "status": "completed",
+          "elapsedSeconds": 46.71,
+          "clientVersion": "2.1.280 (Claude Code)",
+          "model": "claude-opus-5-5[1m]",
+          "modelUsage": [
+            "claude-opus-5-5[1m]"
+          ],
+          "fixtureSha256": "52513162285d9107e979af58733bb8cb8ca7c98ff8fb3c2c2dea5f308d27c724",
+          "promptSha256": "1648134989b08c3ae53c9917364ea60007076c3766b8795f9aa0dc6368e1cfa1",
+          "skillTextSha256": null,
+          "alteredFixedFiles": [],
+          "toolCalls": 7,
+          "terminalSubtype": "success",
+          "grading": {
+            "checks": {
+              "response_and_order_preserved": true,
+              "edge_case_ids_preserved": true,
+              "inputs_preserved": true,
+              "reads_at_most_half_baseline": true
+            },
+            "measurement": {
+              "userIdReads": 400,
+              "baselineUserIdReads": 16440
+            }
+          },
+          "permissionDenialCount": 0,
+          "unscoredReason": null,
+          "candidatePatch": "evidence/round-1-gauntlet-baseline.patch",
+          "candidateSha256": "f4c4afb6d21bb85931e19261fd0b484f4d58d7eee438bba09677d0b0a48591bf",
+          "candidatePatchSha256": "fda9e93fac259bdfbaa11ac6150a72314c49703454185f70f0be83d123b94184",
+          "rawTraceSha256": "9827a18dc936103bf36898c4a37d9935fd50df89dbb3d39b90639243677b4848"
+        },
+        {
+          "case": "aeo",
+          "arm": "baseline",
+          "status": "unknown",
+          "elapsedSeconds": 77.5,
+          "clientVersion": "2.1.280 (Claude Code)",
+          "model": "claude-opus-5-5[1m]",
+          "modelUsage": [
+            "claude-opus-5-5[1m]"
+          ],
+          "fixtureSha256": "a356814e5d18e82e2167c7114df0ad8278721487f03e4a9550091483a921a385",
+          "promptSha256": "0eb48b97f88b8e3be43c0c5a0bb105c2394d8708d5c1294293f3abb571044427",
+          "skillTextSha256": null,
+          "alteredFixedFiles": [],
+          "toolCalls": 21,
+          "terminalSubtype": "success",
+          "grading": null,
+          "permissionDenialCount": 2,
+          "unscoredReason": "Denied tool requests under the frozen rule",
+          "candidatePatch": "evidence/round-1-aeo-baseline.patch",
+          "candidateSha256": "84986c6618fedd4a23077fc4893b9327dc21dfbc2f7778b21e797a72ed475777",
+          "candidatePatchSha256": "90eae3edcf11ba409545a41cbeb84c262cd6a0a755db823a56bf41eee80cd936",
+          "rawTraceSha256": "765c666d0c38947cf71834de17a407bd6ca4946708c12a653a9da74ce904888c"
+        },
+        {
+          "case": "aeo",
+          "arm": "skill",
+          "status": "unknown",
+          "elapsedSeconds": 62.52,
+          "clientVersion": "2.1.280 (Claude Code)",
+          "model": "claude-opus-5-5[1m]",
+          "modelUsage": [
+            "claude-opus-5-5[1m]"
+          ],
+          "fixtureSha256": "a356814e5d18e82e2167c7114df0ad8278721487f03e4a9550091483a921a385",
+          "promptSha256": "badd42a150495c2a9fd0c8a83233aaf6aa0f831277d03b8302093f61afd2bc74",
+          "skillTextSha256": "6b79176e7353ec712ff0dd3ec8aec71c670b0356e30d69601e0c45256ca8bd7b",
+          "alteredFixedFiles": [],
+          "toolCalls": 23,
+          "terminalSubtype": "success",
+          "grading": null,
+          "permissionDenialCount": 1,
+          "unscoredReason": "Denied tool requests under the frozen rule",
+          "candidatePatch": "evidence/round-1-aeo-skill.patch",
+          "candidateSha256": "25b158b2da66d958f6b791c43f8b87d425f947f56261604e48890379fb4febf0",
+          "candidatePatchSha256": "61eacb03ba6885660bcdf9f83ef280cd9c164f3a58a98df34727b0c283f4bf7f",
+          "rawTraceSha256": "b21c0c62b0d422931278b0fdf49eaaa428dbffd05f82231c9864638497a97f1d"
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "protocolFile": "protocol-v2.json",
+      "sourceRevision": "be6b8d7f1429ae5271b07e2cc9116ee6706db1f1",
+      "protocolSha256": "ff69f8d8a78f360319ff36f0129f48a1ca6b2295cbbac29fec8907eb88dda59f",
+      "runnerSha256": "f086d5a49a11749af6d093902280a0cf00350e1613ad8bca8903ec1e9d9532cb",
+      "aeoVersion": "0.0.16",
+      "sessions": [
+        {
+          "case": "gates",
+          "arm": "baseline",
+          "status": "completed",
+          "elapsedSeconds": 52.6,
+          "clientVersion": "2.1.280 (Claude Code)",
+          "model": "claude-opus-5-5[1m]",
+          "modelUsage": [
+            "claude-opus-5-5[1m]"
+          ],
+          "fixtureSha256": "4c5e28080c8ffcdde44fc85983198c7415d58e3700a4627a91f31dcfd42db567",
+          "promptSha256": "e0d49a77ca775c2b31351704d018d3289001cab98d4a4614bb5cb88280c506b8",
+          "skillTextSha256": null,
+          "alteredFixedFiles": [],
+          "toolCalls": 11,
+          "terminalSubtype": "success",
+          "grading": {
+            "checks": {
+              "valid_samples_pass": true,
+              "slow_samples_fail": true,
+              "missing_latency_fails": true,
+              "invalid_latency_fails": true,
+              "missing_or_invalid_participants_fail": true
+            }
+          },
+          "permissionDenialCount": 0,
+          "unscoredReason": null,
+          "candidatePatch": "evidence/round-2-gates-baseline.patch",
+          "candidateSha256": "b73f3146931965307d96320e9903775725e1e7de0846189235eab7d0b041ba24",
+          "candidatePatchSha256": "6665c6d226dfff677ba6e1c6ff895c354eb6b72b56fbcaad71e4d85ddde113c7",
+          "rawTraceSha256": "0b82ffba4ae60a9922495a8df9cf0c937a9d9f608176b441ba2e42bcd87f347c"
+        },
+        {
+          "case": "gates",
+          "arm": "skill",
+          "status": "completed",
+          "elapsedSeconds": 86.86,
+          "clientVersion": "2.1.280 (Claude Code)",
+          "model": "claude-opus-5-5[1m]",
+          "modelUsage": [
+            "claude-opus-5-5[1m]"
+          ],
+          "fixtureSha256": "4c5e28080c8ffcdde44fc85983198c7415d58e3700a4627a91f31dcfd42db567",
+          "promptSha256": "e220859b9d9c8d4c13f68a0e50d0e50bf8b7cdf4489c61fd468f601781796d36",
+          "skillTextSha256": "a6f17614faf4ce613b410010d670dfbbe5c74068c93bd3e7d5b6746fb4bf4546",
+          "alteredFixedFiles": [],
+          "toolCalls": 17,
+          "terminalSubtype": "success",
+          "grading": {
+            "checks": {
+              "valid_samples_pass": true,
+              "slow_samples_fail": true,
+              "missing_latency_fails": true,
+              "invalid_latency_fails": true,
+              "missing_or_invalid_participants_fail": true
+            }
+          },
+          "permissionDenialCount": 0,
+          "unscoredReason": null,
+          "candidatePatch": "evidence/round-2-gates-skill.patch",
+          "candidateSha256": "5cacfe2f0446a06acc19fa29b268fe10a0708f20f2719af34b4beca33274ffe3",
+          "candidatePatchSha256": "67fdfd9f6c558898f2f8472923ad75e03119bc4d1dbbeb43e55a49b5b74ade75",
+          "rawTraceSha256": "d687b8a6ce3a843010329cb80e29d11bf0be32e2b975e5c4bb5f2ecc56c51687"
+        },
+        {
+          "case": "gauntlet",
+          "arm": "skill",
+          "status": "completed",
+          "elapsedSeconds": 59.9,
+          "clientVersion": "2.1.280 (Claude Code)",
+          "model": "claude-opus-5-5[1m]",
+          "modelUsage": [
+            "claude-opus-5-5[1m]"
+          ],
+          "fixtureSha256": "52513162285d9107e979af58733bb8cb8ca7c98ff8fb3c2c2dea5f308d27c724",
+          "promptSha256": "2839e12ddde320d5519f5b254a938939da4f61c82a7d8da23977085bea2ac898",
+          "skillTextSha256": "b807c50a1fded489380b10cb4a70b66579639f309d5c04b5a101aa7b1c912073",
+          "alteredFixedFiles": [],
+          "toolCalls": 15,
+          "terminalSubtype": "success",
+          "grading": {
+            "checks": {
+              "response_and_order_preserved": true,
+              "edge_case_ids_preserved": true,
+              "inputs_preserved": true,
+              "reads_at_most_half_baseline": true
+            },
+            "measurement": {
+              "userIdReads": 400,
+              "baselineUserIdReads": 16440
+            }
+          },
+          "permissionDenialCount": 0,
+          "unscoredReason": null,
+          "candidatePatch": "evidence/round-2-gauntlet-skill.patch",
+          "candidateSha256": "bf6fe084e3c65293f26f6194e6672aafb7fbb61756ff1e6e6cfa739d6df2dbe8",
+          "candidatePatchSha256": "c50b29ea5a6bae7695741ca5f667ff048f4656b21243b668c790f50d634fbba5",
+          "rawTraceSha256": "a472ae0ab2bd012646f37964a0e93cad6504e2c3de2af5d3c3b30532a5bca47c"
+        },
+        {
+          "case": "gauntlet",
+          "arm": "baseline",
+          "status": "completed",
+          "elapsedSeconds": 64.2,
+          "clientVersion": "2.1.280 (Claude Code)",
+          "model": "claude-opus-5-5[1m]",
+          "modelUsage": [
+            "claude-opus-5-5[1m]"
+          ],
+          "fixtureSha256": "52513162285d9107e979af58733bb8cb8ca7c98ff8fb3c2c2dea5f308d27c724",
+          "promptSha256": "178ff775ad9d4eebd000ee7b3004886cae647bf3c13848ef8fe9fe85bdd65fd6",
+          "skillTextSha256": null,
+          "alteredFixedFiles": [],
+          "toolCalls": 15,
+          "terminalSubtype": "success",
+          "grading": {
+            "checks": {
+              "response_and_order_preserved": true,
+              "edge_case_ids_preserved": true,
+              "inputs_preserved": true,
+              "reads_at_most_half_baseline": true
+            },
+            "measurement": {
+              "userIdReads": 400,
+              "baselineUserIdReads": 16440
+            }
+          },
+          "permissionDenialCount": 0,
+          "unscoredReason": null,
+          "candidatePatch": "evidence/round-2-gauntlet-baseline.patch",
+          "candidateSha256": "2a1c37113130383a00750dea9f19bee4be4c41110cdec99936e354bc7105b159",
+          "candidatePatchSha256": "6ced4239989bc48ea9b8ca3f3f6f98a382cd2265e98eb175a03ab71ca2f7634b",
+          "rawTraceSha256": "1d6fd6974ff7f096df474f410693749c0082b1740993d44e8f84c150a6e8a500"
+        },
+        {
+          "case": "aeo",
+          "arm": "baseline",
+          "status": "completed",
+          "elapsedSeconds": 92.44,
+          "clientVersion": "2.1.280 (Claude Code)",
+          "model": "claude-opus-5-5[1m]",
+          "modelUsage": [
+            "claude-opus-5-5[1m]"
+          ],
+          "fixtureSha256": "a356814e5d18e82e2167c7114df0ad8278721487f03e4a9550091483a921a385",
+          "promptSha256": "1722785bb715940b0cac16f5c492cd10957728f624c1031de40dcb3120d9f325",
+          "skillTextSha256": null,
+          "alteredFixedFiles": [],
+          "toolCalls": 23,
+          "terminalSubtype": "success",
+          "grading": {
+            "checks": {
+              "robots_owner_and_policy_preserved": true,
+              "sitemap_owner_preserved": true,
+              "unpublished_content_excluded": false,
+              "public_canonicals_served": true,
+              "parseable_page_jsonld_served": true
+            },
+            "measurement": {
+              "servedPaths": {
+                "/en/guide/": 200,
+                "/pt/guia/": 200,
+                "/private/draft/": 200,
+                "/robots.txt": 200,
+                "/sitemap.xml": 200,
+                "/llms.txt": 404
+              }
+            }
+          },
+          "permissionDenialCount": 0,
+          "unscoredReason": null,
+          "candidatePatch": "evidence/round-2-aeo-baseline.patch",
+          "candidateSha256": "79be244ef752d222e1019e0418de5901f5f0ba7fedfccd067ab14d2a281f9c14",
+          "candidatePatchSha256": "f0bcff4e3c2a7002120c9a94017e00af88b80dd59521c28b6b84d28ee45e0102",
+          "rawTraceSha256": "6939a7a3bc2cc3cda999681162b0acc49c7157ef65f25bb548c7b34b38a663c7"
+        },
+        {
+          "case": "aeo",
+          "arm": "skill",
+          "status": "completed",
+          "elapsedSeconds": 122.93,
+          "clientVersion": "2.1.280 (Claude Code)",
+          "model": "claude-opus-5-5[1m]",
+          "modelUsage": [
+            "claude-opus-5-5[1m]"
+          ],
+          "fixtureSha256": "a356814e5d18e82e2167c7114df0ad8278721487f03e4a9550091483a921a385",
+          "promptSha256": "00544b24c7ff785100925ee19541bf9b6128acf30560c79504f64d876162ac95",
+          "skillTextSha256": "6b79176e7353ec712ff0dd3ec8aec71c670b0356e30d69601e0c45256ca8bd7b",
+          "alteredFixedFiles": [],
+          "toolCalls": 24,
+          "terminalSubtype": "success",
+          "grading": {
+            "checks": {
+              "robots_owner_and_policy_preserved": true,
+              "sitemap_owner_preserved": true,
+              "unpublished_content_excluded": true,
+              "public_canonicals_served": true,
+              "parseable_page_jsonld_served": true
+            },
+            "measurement": {
+              "servedPaths": {
+                "/en/guide/": 200,
+                "/pt/guia/": 200,
+                "/private/draft/": 404,
+                "/robots.txt": 200,
+                "/sitemap.xml": 200,
+                "/llms.txt": 200
+              }
+            }
+          },
+          "permissionDenialCount": 0,
+          "unscoredReason": null,
+          "candidatePatch": "evidence/round-2-aeo-skill.patch",
+          "candidateSha256": "25b158b2da66d958f6b791c43f8b87d425f947f56261604e48890379fb4febf0",
+          "candidatePatchSha256": "61eacb03ba6885660bcdf9f83ef280cd9c164f3a58a98df34727b0c283f4bf7f",
+          "rawTraceSha256": "28968cd29c9d5079620a5bce8c12ad54a9e99785aa3dcb670c43dd096027e2ff"
+        }
+      ]
+    }
+  ]
+}

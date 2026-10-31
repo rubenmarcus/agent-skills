@@ -1,0 +1,14 @@
+--- original/config.mjs
++++ candidate/config.mjs
+@@ -1,6 +1,8 @@
+ export default {
+   origin:'https://example.test',
+-  routes:['/en/guide','/pt/guia','/private/draft'],
+-  generators:{robotsTxt:true,sitemap:true},
+-  exposeJsonLd:false
++  // /private/draft is unpublished; keep it out of the build so aeo.js never discovers it.
++  routes:['/en/guide','/pt/guia'],
++  // robots.txt and sitemap.xml are owned files copied verbatim by build.mjs; do not regenerate them.
++  generators:{robotsTxt:false,sitemap:false},
++  exposeJsonLd:true
+ };

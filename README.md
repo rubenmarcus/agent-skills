@@ -1,12 +1,14 @@
 # Ruben's agent skills
 
-Engineering workflows for Codex and Claude Code: trace a bug, challenge a change, run a bounded improvement loop, research a claim, coordinate agents, or verify a site's AEO integration.
+The 11 workflows I use across projects with Codex and Claude Code, rewritten as reusable instructions. Debugging, adversarial review, bounded improvement loops, research, collaboration, Git hooks, and AEO.
 
 [Português brasileiro](README.pt-BR.md)
 
-**Version 0.1.0.** Eleven skills, one shared source, MIT license. Structural and fixture checks are separate from real-agent behavioral evaluation, which is still pending. Distribution is through this Git repository and plugin metadata; there is no npm release.
+**Version 0.1.0.** Eleven skills, one shared source, MIT license. Structural checks and a [small paired pilot](evals/pilot/REPORT.md) are recorded; full Codex/Claude behavioral evaluation remains pending. Distribution is through this Git repository and plugin metadata; there is no npm release.
 
 ## Choose a workflow
+
+Two starting points come directly from my project work: [AEO](skills/aeo/SKILL.md) for aeo.js integration and served discovery checks, and [Gauntlet](skills/gauntlet-loop/SKILL.md) for measured improvement rounds such as game lighting. The other workflows organize the checks, research, and implementation around those tasks.
 
 | Skill | Use it for |
 | --- | --- |
@@ -27,6 +29,19 @@ Start with the skill that matches the current task. Review, debugging, and quali
 The [example tasks](#example-tasks) give a scenario, prompt, and expected artifact for all 11 skills.
 
 The collaboration method was generalized from the author's ECDSA work. Planning, validated iteration, and worktree coordination draw on Ralph Starter. AEO uses the actual aeo.js CLI and adapter surface. See [provenance](PROVENANCE.md) for source revisions and distribution references.
+
+## Complementary collections
+
+[Matt Pocock's skills](https://github.com/mattpocock/skills) and [Addy Osmani's agent-skills](https://github.com/addyosmani/agent-skills) cover several of the same decisions. Independent review, negative controls, and agent coordination also appear in their workflows. I keep this collection as my project selection; choose the instructions that fit your task and existing setup.
+
+| Task | Another workflow to read |
+| --- | --- |
+| Reproduce a bug before changing code | [Matt's diagnosing-bugs](https://github.com/mattpocock/skills/blob/a496f5513d4a4cf889bc48e189e579f4b0bdf6aa/skills/engineering/diagnosing-bugs/SKILL.md) |
+| Review an artifact against its contract | [Addy's doubt-driven-development](https://github.com/addyosmani/agent-skills/blob/eb07f19f52c2669f2364897aaa293e2aaddd7b1c/skills/doubt-driven-development/SKILL.md) |
+| Define measurable constraints and broken controls | [Addy's constraint-driven-development](https://github.com/addyosmani/agent-skills/blob/eb07f19f52c2669f2364897aaa293e2aaddd7b1c/skills/constraint-driven-development/SKILL.md) |
+| Set up repository checks before commits | [Matt's setup-pre-commit](https://github.com/mattpocock/skills/blob/a496f5513d4a4cf889bc48e189e579f4b0bdf6aa/skills/misc/setup-pre-commit/SKILL.md) |
+
+These links pin the inspected revisions. Their content stays in the upstream repositories. This collection makes no effectiveness ranking against either suite.
 
 ## Install or try one workflow
 
@@ -89,6 +104,8 @@ npm pack --ignore-scripts --pack-destination /tmp
 `check` verifies skill metadata, local references, manifest consistency, package entries, and the scenario inventory. It is a deliberately small check for this repository's scalar metadata format, not a general YAML parser or a behavioral evaluator. `check:hook` uses a fake scanner to verify argument and exit propagation, including the missing-scanner case; it does not measure gitleaks detection quality.
 
 [Evaluation scenarios](evals/scenarios.json) describe positive and boundary cases for a future Codex/Claude run. Record client/model versions, revision, tool permissions, actual outputs, failures, and review decisions when executing them. A green package check does not establish that an agent followed the workflow.
+
+The [three-task pilot](evals/pilot/REPORT.md) compared supplied skill text with no supplied skill in fresh Claude sessions. After one symmetric tool clarification, gate and route checks tied (5/5 and 4/4); AEO passed 5/5 with the skill and 4/5 without it. The baseline still served an unpublished draft. All 12 task sessions across both frozen rounds are recorded, including five unscored first-round sessions after tool denials. One execution per arm in each round does not establish a general effectiveness ranking; native routing and the separate 22-case plan remain untested.
 
 The package uses an explicit file list. The companion articles in Brazilian Portuguese and English are maintained in the author's portfolio, outside this collection. npm publishing is disabled with `private: true`; Git/plugin distribution does not require a custom installer or npm release.
 

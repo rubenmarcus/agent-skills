@@ -1,0 +1,13 @@
+--- original/gate.mjs
++++ candidate/gate.mjs
+@@ -1,5 +1,7 @@
+ export function gate(sample) {
+-  const latencyMs = sample.latencyMs ?? 0;
+-  const participants = sample.response?.participants ?? [];
+-  return { ok: latencyMs <= 200 && Array.isArray(participants), latencyMs };
++  const latencyMs = sample?.latencyMs;
++  const participants = sample?.response?.participants;
++  const validLatency =
++    Number.isFinite(latencyMs) && latencyMs >= 0 && latencyMs <= 200;
++  return { ok: validLatency && Array.isArray(participants), latencyMs };
+ }

@@ -1,0 +1,14 @@
+--- original/config.mjs
++++ candidate/config.mjs
+@@ -1,6 +1,9 @@
+ export default {
+   origin:'https://example.test',
+   routes:['/en/guide','/pt/guia','/private/draft'],
+-  generators:{robotsTxt:true,sitemap:true},
+-  exposeJsonLd:false
++  // robots.txt and sitemap.xml are owned files; aeo.js must not regenerate them.
++  // The remaining file generators list every built page, including /private/draft,
++  // and aeo.js 0.0.16 has no exclude option, so they stay off.
++  generators:{robotsTxt:false,sitemap:false,llmsTxt:false,llmsFullTxt:false,rawMarkdown:false,manifest:false,aiIndex:false,schema:false},
++  exposeJsonLd:true
+ };

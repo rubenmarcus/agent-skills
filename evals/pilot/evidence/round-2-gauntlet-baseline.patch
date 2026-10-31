@@ -1,0 +1,17 @@
+--- original/route.mjs
++++ candidate/route.mjs
+@@ -1,8 +1,11 @@
+ export function summarize(events) {
+-  const ids = [];
+-  for (const event of events) if (!ids.includes(event.userId)) ids.push(event.userId);
++  const counts = new Map();
++  for (const event of events) {
++    const userId = event.userId;
++    counts.set(userId, (counts.get(userId) ?? 0) + 1);
++  }
+   return {
+     totalEvents: events.length,
+-    participants: ids.map(userId => ({userId, events:events.filter(event => event.userId === userId).length}))
++    participants: Array.from(counts, ([userId, events]) => ({userId, events}))
+   };
+ }

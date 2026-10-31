@@ -1,0 +1,12 @@
+--- original/config.mjs
++++ candidate/config.mjs
+@@ -1,6 +1,6 @@
+ export default {
+   origin:'https://example.test',
+-  routes:['/en/guide','/pt/guia','/private/draft'],
+-  generators:{robotsTxt:true,sitemap:true},
+-  exposeJsonLd:false
++  routes:['/en/guide','/pt/guia'],
++  generators:{robotsTxt:false,sitemap:false},
++  exposeJsonLd:true
+ };

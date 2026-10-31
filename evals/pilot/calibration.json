@@ -1,0 +1,151 @@
+{
+  "gates": {
+    "broken": {
+      "checks": {
+        "valid_samples_pass": true,
+        "slow_samples_fail": true,
+        "missing_latency_fails": false,
+        "invalid_latency_fails": false,
+        "missing_or_invalid_participants_fail": false
+      }
+    },
+    "reference": {
+      "checks": {
+        "valid_samples_pass": true,
+        "slow_samples_fail": true,
+        "missing_latency_fails": true,
+        "invalid_latency_fails": true,
+        "missing_or_invalid_participants_fail": true
+      }
+    },
+    "counterexamples": {
+      "rejects_valid_nonempty_arrays": {
+        "checks": {
+          "valid_samples_pass": false,
+          "slow_samples_fail": true,
+          "missing_latency_fails": true,
+          "invalid_latency_fails": true,
+          "missing_or_invalid_participants_fail": true
+        }
+      },
+      "accepts_missing_response_wrapper": {
+        "checks": {
+          "valid_samples_pass": true,
+          "slow_samples_fail": true,
+          "missing_latency_fails": true,
+          "invalid_latency_fails": true,
+          "missing_or_invalid_participants_fail": false
+        }
+      },
+      "nonboolean_rejection": {
+        "checks": {
+          "valid_samples_pass": true,
+          "slow_samples_fail": false,
+          "missing_latency_fails": false,
+          "invalid_latency_fails": false,
+          "missing_or_invalid_participants_fail": false
+        }
+      }
+    }
+  },
+  "gauntlet": {
+    "broken": {
+      "checks": {
+        "response_and_order_preserved": true,
+        "edge_case_ids_preserved": true,
+        "inputs_preserved": true,
+        "reads_at_most_half_baseline": false
+      },
+      "measurement": {
+        "userIdReads": 16440,
+        "baselineUserIdReads": 16440
+      }
+    },
+    "reference": {
+      "checks": {
+        "response_and_order_preserved": true,
+        "edge_case_ids_preserved": true,
+        "inputs_preserved": true,
+        "reads_at_most_half_baseline": true
+      },
+      "measurement": {
+        "userIdReads": 400,
+        "baselineUserIdReads": 16440
+      }
+    },
+    "counterexamples": {
+      "caps_benchmark_counts_at_two": {
+        "checks": {
+          "response_and_order_preserved": false,
+          "edge_case_ids_preserved": true,
+          "inputs_preserved": true,
+          "reads_at_most_half_baseline": true
+        },
+        "measurement": {
+          "userIdReads": 400,
+          "baselineUserIdReads": 16440
+        }
+      },
+      "reverses_input_after_summarizing": {
+        "checks": {
+          "response_and_order_preserved": true,
+          "edge_case_ids_preserved": true,
+          "inputs_preserved": false,
+          "reads_at_most_half_baseline": true
+        },
+        "measurement": {
+          "userIdReads": 400,
+          "baselineUserIdReads": 16440
+        }
+      }
+    }
+  },
+  "aeo": {
+    "broken": {
+      "checks": {
+        "robots_owner_and_policy_preserved": false,
+        "sitemap_owner_preserved": false,
+        "unpublished_content_excluded": false,
+        "public_canonicals_served": true,
+        "parseable_page_jsonld_served": false
+      },
+      "measurement": {
+        "servedPaths": {
+          "/en/guide/": 200,
+          "/pt/guia/": 200,
+          "/private/draft/": 200,
+          "/robots.txt": 200,
+          "/sitemap.xml": 200,
+          "/llms.txt": 200
+        }
+      }
+    },
+    "reference": {
+      "checks": {
+        "robots_owner_and_policy_preserved": true,
+        "sitemap_owner_preserved": true,
+        "unpublished_content_excluded": true,
+        "public_canonicals_served": true,
+        "parseable_page_jsonld_served": true
+      },
+      "measurement": {
+        "servedPaths": {
+          "/en/guide/": 200,
+          "/pt/guia/": 200,
+          "/private/draft/": 404,
+          "/robots.txt": 200,
+          "/sitemap.xml": 200,
+          "/llms.txt": 200
+        }
+      }
+    },
+    "counterexamples": {},
+    "sandbox": {
+      "outside_read_denied": true,
+      "outside_write_denied": true,
+      "dependency_write_denied": true,
+      "environment_allowlist": true,
+      "external_network_denied": true
+    }
+  }
+}

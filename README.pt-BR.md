@@ -4,9 +4,11 @@
 
 11 workflows para Codex e Claude Code, extraídos dos meus projetos e reescritos como instruções reutilizáveis. Debugging, review adversarial, loops de melhoria, pesquisa com fontes, colaboração, hooks Git e AEO.
 
-**Versão 0.1.0, licença MIT.** Os checks de estrutura e exemplos isolados passaram. A avaliação comportamental completa com os dois agentes continua pendente. A distribuição é por Git e metadados de plugin; não há release no npm.
+**Versão 0.1.0, licença MIT.** Os checks de estrutura e um [piloto pequeno com pares de tarefas](evals/pilot/REPORT.md) estão registrados. A avaliação comportamental completa com os dois agentes continua pendente. A distribuição é por Git e metadados de plugin; não há release no npm.
 
 ## Escolha pelo problema
+
+Dois pontos de partida vêm direto dos meus projetos: [AEO](skills/aeo/SKILL.md), para integrar aeo.js e verificar a descoberta nas respostas servidas, e [Gauntlet](skills/gauntlet-loop/SKILL.md), para rodadas de melhoria com medidas, como iluminação de mapas. Os outros workflows organizam os checks, a pesquisa e a implementação dessas tarefas.
 
 | Skill | Quando usar |
 | --- | --- |
@@ -25,6 +27,19 @@
 Comece pela skill da tarefa atual. Os workflows de colaboração se aplicam quando o trabalho paralelo foi solicitado ou autorizado.
 
 Os [exemplos de uso](#exemplos-de-uso) trazem cenário, prompt e resultado esperado para cada uma das 11 skills.
+
+## Coleções complementares
+
+As [skills do Matt Pocock](https://github.com/mattpocock/skills) e o [agent-skills do Addy Osmani](https://github.com/addyosmani/agent-skills) cobrem várias das mesmas decisões. Review independente, controles negativos e coordenação de agentes também aparecem nos workflows deles. Mantenho esta coleção como a seleção dos meus projetos; escolha as instruções que combinam com a tarefa e o setup que você já usa.
+
+| Tarefa | Outro workflow para ler |
+| --- | --- |
+| Reproduzir um bug antes de alterar código | [diagnosing-bugs do Matt](https://github.com/mattpocock/skills/blob/a496f5513d4a4cf889bc48e189e579f4b0bdf6aa/skills/engineering/diagnosing-bugs/SKILL.md) |
+| Revisar um artefato contra o contrato | [doubt-driven-development do Addy](https://github.com/addyosmani/agent-skills/blob/eb07f19f52c2669f2364897aaa293e2aaddd7b1c/skills/doubt-driven-development/SKILL.md) |
+| Definir restrições mensuráveis e controles quebrados | [constraint-driven-development do Addy](https://github.com/addyosmani/agent-skills/blob/eb07f19f52c2669f2364897aaa293e2aaddd7b1c/skills/constraint-driven-development/SKILL.md) |
+| Configurar checks do repositório antes dos commits | [setup-pre-commit do Matt](https://github.com/mattpocock/skills/blob/a496f5513d4a4cf889bc48e189e579f4b0bdf6aa/skills/misc/setup-pre-commit/SKILL.md) |
+
+Os links fixam as revisões inspecionadas. O conteúdo continua nos repositórios de origem. Esta coleção não tem uma comparação de eficácia contra essas suites.
 
 ## Instalação
 
@@ -235,6 +250,8 @@ npm pack --ignore-scripts --pack-destination /tmp
 ```
 
 `check` verifica metadados, referências, manifests e cenários. `check:hook` usa um scanner falso para verificar argumentos e propagação dos códigos de saída; ele não mede a detecção do gitleaks. Os [cenários de avaliação](evals/scenarios.json) ainda precisam ser executados e registrados com versões dos agentes, revisão, permissões e resultados.
+
+O [piloto com três tarefas](evals/pilot/REPORT.md) comparou o texto da skill com a tarefa sem skill em sessões novas do Claude. Após um esclarecimento das ferramentas aplicado aos dois lados, gate e rota empataram (5/5 e 4/4); AEO passou em 5/5 com a skill e 4/5 sem ela. O baseline ainda servia um rascunho não publicado. As 12 sessões das duas rodadas congeladas estão registradas, incluindo cinco sem pontuação na primeira após comandos negados. Uma execução por lado em cada rodada não estabelece eficácia geral; a descoberta automática e o plano separado de 22 casos continuam sem avaliação.
 
 A skill de AEO verifica implementação e respostas observadas. Ranking, citações e tráfego precisam de evidência própria. Análises de crédito e outras decisões com consequências precisam de requisitos, dados e avaliação do domínio; a coleção não foi validada como sistema de decisão.
 
