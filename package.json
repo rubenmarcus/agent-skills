@@ -20,6 +20,7 @@
     "scripts/check.mjs",
     "scripts/check-hook.py",
     "evals/scenarios.json",
+    "evals/pilot/",
     "README.md",
     "README.pt-BR.md",
     "PROVENANCE.md",

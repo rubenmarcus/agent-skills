@@ -5,3 +5,6 @@ __pycache__/
 .env
 .env.*
 !*.example
+
+# Raw local pilot traces and disposable agent workspaces
+artifacts/pilot-runs/
