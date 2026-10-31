@@ -249,7 +249,9 @@ def execute(case, arm, output, aeo_package):
     return result
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--output',required=True,type=Path);p.add_argument('--aeo-package',required=True,type=Path);p.add_argument('--self-check',action='store_true');p.add_argument('--run',action='store_true');args=p.parse_args()
+    global PROTOCOL
+    p=argparse.ArgumentParser();p.add_argument('--output',required=True,type=Path);p.add_argument('--aeo-package',required=True,type=Path);p.add_argument('--protocol',type=Path,default=HERE/'protocol.json');p.add_argument('--self-check',action='store_true');p.add_argument('--run',action='store_true');args=p.parse_args()
+    PROTOCOL=json.loads(args.protocol.read_text())
     if args.self_check==args.run:p.error('Choose exactly one of --self-check or --run')
     if not NODE: p.error('Node.js required')
     if args.run and not CLAUDE:p.error('Claude Code required for --run')
@@ -259,7 +261,7 @@ def main():
     args.output=args.output.resolve();args.output.mkdir(parents=True,exist_ok=False)
     if args.self_check:return self_check(args.output,args.aeo_package.resolve())
     assert subprocess.check_output(['claude','--version'],text=True).strip().startswith('2.1.280 '),'Client differs from frozen protocol'
-    manifest={'protocolSha256':sha((HERE/'protocol.json').read_bytes()),'runnerSha256':sha(Path(__file__).read_bytes()),'sourceRevision':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'aeoVersion':package['version'],'fixtures':{c:tree(HERE/'fixtures'/c) for c in PROTOCOL['cases']}}
+    manifest={'protocolSha256':sha(args.protocol.read_bytes()),'runnerSha256':sha(Path(__file__).read_bytes()),'sourceRevision':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'aeoVersion':package['version'],'fixtures':{c:tree(HERE/'fixtures'/c) for c in PROTOCOL['cases']}}
     (args.output/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     # Independent fixture copies, at most two simultaneous target processes.
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:

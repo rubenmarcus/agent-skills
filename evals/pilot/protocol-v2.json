@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "scope": "Three synthetic tool-using task pairs; explicit skill-text injection versus no supplied skill. No native routing test, upstream comparison, visual approval or full suite claim.",
+  "client": "Claude Code 2.1.280",
+  "model": "claude-opus-5-5[1m]",
+  "context_window": 1000000,
+  "effort": "medium",
+  "seconds_per_execution": 240,
+  "max_reported_api_budget_usd_per_execution": 2,
+  "repetitions_per_arm": 1,
+  "order": [
+    [
+      "gates",
+      "baseline"
+    ],
+    [
+      "gates",
+      "skill"
+    ],
+    [
+      "gauntlet",
+      "skill"
+    ],
+    [
+      "gauntlet",
+      "baseline"
+    ],
+    [
+      "aeo",
+      "baseline"
+    ],
+    [
+      "aeo",
+      "skill"
+    ]
+  ],
+  "cases": {
+    "gates": {
+      "skill": "quality-gates",
+      "prompt": "Repair the release gate described in README.md so valid samples pass and missing or invalid required observations cannot pass. Preserve the public function contract. Verify your change and write DELIVERY.md describing the evidence and any limits. Work only in this fixture; do not deploy, access external services, install dependencies or edit fixed files.\n\nTool contract for this synthetic fixture: use Read, Write and Edit for files. Bash is allowed only for a complete node invocation. Do not use Git, ls, cat, mkdir, cp, shell loops, command chaining, pipes or redirection. This fixture has no task-owned Git history; use local file hashes when you need artifact identity. Use Node built-in APIs for any extra copying, hashing, directory inspection or checks. All supplied commands can run as separate node invocations. Put inline JavaScript inside a single-quoted shell argument so its text is passed unchanged. Do not attempt commands outside this tool contract; record a limit if the available tools are insufficient.",
+      "checks": [
+        "valid_samples_pass",
+        "slow_samples_fail",
+        "missing_latency_fails",
+        "invalid_latency_fails",
+        "missing_or_invalid_participants_fail"
+      ]
+    },
+    "gauntlet": {
+      "skill": "gauntlet-loop",
+      "prompt": "Improve the participant-summary route under the contract and read-reduction target in README.md. Use at most three candidate rounds, preserve the existing response and inputs, and verify the result. Write DELIVERY.md with what changed, the evidence and any remaining limits. Work only in this fixture; do not deploy, access external services, install dependencies or edit fixed files.\n\nTool contract for this synthetic fixture: use Read, Write and Edit for files. Bash is allowed only for a complete node invocation. Do not use Git, ls, cat, mkdir, cp, shell loops, command chaining, pipes or redirection. This fixture has no task-owned Git history; use local file hashes when you need artifact identity. Use Node built-in APIs for any extra copying, hashing, directory inspection or checks. All supplied commands can run as separate node invocations. Put inline JavaScript inside a single-quoted shell argument so its text is passed unchanged. Do not attempt commands outside this tool contract; record a limit if the available tools are insufficient.",
+      "checks": [
+        "response_and_order_preserved",
+        "edge_case_ids_preserved",
+        "inputs_preserved",
+        "reads_at_most_half_baseline"
+      ]
+    },
+    "aeo": {
+      "skill": "aeo",
+      "prompt": "Repair public EN/PT discovery according to README.md using the existing aeo.js integration. Verify the resulting site and write DELIVERY.md with evidence and any limits. Work only in this fixture; do not deploy, access external services, install dependencies or edit fixed files.\n\nTool contract for this synthetic fixture: use Read, Write and Edit for files. Bash is allowed only for a complete node invocation. Do not use Git, ls, cat, mkdir, cp, shell loops, command chaining, pipes or redirection. This fixture has no task-owned Git history; use local file hashes when you need artifact identity. Use Node built-in APIs for any extra copying, hashing, directory inspection or checks. All supplied commands can run as separate node invocations. Put inline JavaScript inside a single-quoted shell argument so its text is passed unchanged. Do not attempt commands outside this tool contract; record a limit if the available tools are insufficient.",
+      "checks": [
+        "robots_owner_and_policy_preserved",
+        "sitemap_owner_preserved",
+        "unpublished_content_excluded",
+        "public_canonicals_served",
+        "parseable_page_jsonld_served"
+      ]
+    }
+  },
+  "revision_reason": "One bounded repeat after first-round denied shell/Git requests. Same guidance added to both arms; checks, fixtures, model, skills, budgets and permissions unchanged."
+}

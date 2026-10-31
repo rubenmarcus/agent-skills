@@ -4,6 +4,8 @@ This pilot compares one fresh Claude Code session given a selected workflow's te
 
 The protocol, prompts, fixtures, and independent checks are frozen before scored execution. Each task has one execution per arm. Six sessions cannot establish a general effectiveness ranking, a statistical effect, or validation of all 11 skills. Matt Pocock and Addy Osmani's collections are source references, outside this experiment.
 
+The first six sessions used `protocol.json`, frozen at `66f7b1a`. Five requested shell/Git commands outside the permitted tools and remain unscored. `protocol-v2.json` freezes one bounded repeat, adding the same explicit Node-only tool guidance to both arms. Fixtures, skill texts, checks, model, permissions and limits are unchanged. Preserve both rounds in the report; the second round does not replace the first round's record.
+
 ## Controls
 
 - Claude Code 2.1.280, `claude-opus-5-5[1m]`, medium effort, identical tool permissions and limits within each pair.
@@ -39,7 +41,7 @@ aeo_package=/absolute/path/to/node_modules/aeo.js
 python3 evals/pilot/run.py --self-check --aeo-package "$aeo_package" \
   --output artifacts/pilot-runs/calibration
 python3 evals/pilot/run.py --run --aeo-package "$aeo_package" \
-  --output artifacts/pilot-runs/run-1
+  --protocol evals/pilot/protocol-v2.json --output artifacts/pilot-runs/run-2
 ```
 
 `--self-check` spends no model usage. It grades the supplied defective state, applies a separate reference correction in the owned copy, and requires the corrected state to pass. `--run` starts the six model sessions and does not overwrite an existing output directory.
