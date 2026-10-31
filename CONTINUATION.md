@@ -19,7 +19,7 @@ Done for this local preparation: portable skills and plugin manifests, source pr
 
 ## Current state
 
-- Branch: `codex/skills-package-20261031`; no remote configured.
+- Branch: `codex/skills-package-20261031`, tracking `origin/main`. Public remote: `https://github.com/rubenmarcus/agent-skills.git`; default branch `main`.
 - Implementation checkpoint: `b78f8872a0406132a1ac9dbd374ff85017f9abcc` (`Add portable agent workflows and article draft`). A following documentation checkpoint records this completion state; use `git log -2 --oneline` to recover both.
 - Inspected Ralph Starter at `ee9c7946c386bb9cecc4001a052e29ffa53f8f9a` (0.5.2).
 - Inspected aeo.js at `9955ce8d9ee77d9ca0c6cd4e26e047a1081697a1` (0.0.17).
@@ -30,7 +30,7 @@ Done for this local preparation: portable skills and plugin manifests, source pr
 1. Source inventory complete. Ralph already ships 9 integration-oriented skills; generalizable methods also live in its executor, validator, session, circuit breaker, swarm, and worktree code.
 2. Local collection initialized separately from existing worktrees. No source project or global installation changed.
 3. Eleven rewritten skills, their relative references, Codex UI metadata, portable plugin manifest, Claude manifest/marketplace, MIT license, and provenance are present. The shared folders require no custom installer or orchestration runtime.
-4. Portuguese article drafted at `articles/skills-dos-projetos-para-um-pacote.pt-BR.md`. It explains concrete failure modes, independent review, social research, the three Ralph extractions, and AEO limits. It does not claim a public release or unmeasured results.
+4. Historical Portuguese draft was moved out of this collection into paired portfolio articles (content key `portable-agent-skills`). Its original text remains recoverable in `b78f887`. The portfolio owns subsequent editorial changes.
 5. Structural and executable-example verification passed on 2026-10-31:
    - `npm run check`: 11 skills, 31 skill files, metadata, local references, manifests, package entries, and 22 explicitly unexecuted behavioral cases.
    - Skill creator `quick_validate.py`: 11/11 passed, using an isolated `uv run --with pyyaml` environment. System Python lacked PyYAML; no global dependency was installed.
@@ -45,11 +45,11 @@ Done for this local preparation: portable skills and plugin manifests, source pr
 
 ## Next concrete step
 
-Local preparation is complete and recoverable in Git. Next: review the collection and article, then execute the documented behavioral scenarios in disposable tasks on Codex and Claude. Before any public release, confirm the destination and release scope, and replace local-preview wording only when publication actually happens.
+Public repository creation and push completed on 2026-10-31 at `https://github.com/rubenmarcus/agent-skills`, default branch `main`, initial public revision `6b6af62`. Next: verify CI and a fresh public checkout, finish the paired portfolio article review, then execute the documented behavioral scenarios in disposable tasks on Codex and Claude.
 
 ## Deferred work
 
-- Public repository creation/push, article publication, profile pinning, and npm publishing.
+- Production publication of the portfolio articles, profile pinning, and npm publishing. Public repository creation/push is complete.
 - Full Codex and Claude behavioral evaluation on real tasks.
 - Scanrepo-specific extraction and a generic bilingual publishing skill can follow once the first package is reviewed.
 
@@ -60,6 +60,6 @@ Local preparation is complete and recoverable in Git. Next: review the collectio
 - Portfolio isolated branch: `blog/portable-agent-skills-pt-en`, base `6bc75b58bbeebb84ac78b0adc04aeba2f3cd3dd1`. Shared content key `portable-agent-skills`; its project ledger is `docs/agent-skills-article-continuation.md`.
 - Prepared English and Brazilian Portuguese READMEs, public Git/Claude marketplace installation, package repository metadata, and CI for structural, hook, and pack checks.
 - Checked official Codex discovery and Claude marketplace documentation. Public Git distribution does not imply OpenAI directory listing or a full real-agent evaluation.
-- Public remote creation and final validation are the next steps. Earlier deferred-state statements above describe the historical baseline.
+- Public remote created and initial code pushed successfully at `6b6af62`. GitHub API confirms `isPrivate: false` and default branch `main`. Final CI/fresh-clone verification and portfolio article review are the next steps.
 
 - Resume validation passed: `npm run check` (11 skills, 31 files, 22 unexecuted cases), `npm run check:hook` (syntax, missing scanner, arguments and 0/1/42 exit propagation), and strict Claude marketplace validation. Full current Git history passed gitleaks with 100 percent redaction. Dry-run pack: 42 files, 27,054 bytes before final ledger text.
