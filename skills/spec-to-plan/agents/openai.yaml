@@ -1,0 +1,3 @@
+interface:
+  display_name: "Spec to plan"
+  short_description: "Turn a task into bounded work with acceptance checks"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Git quality hooks"
+  short_description: "Compose staged secret checks with existing Git hooks"

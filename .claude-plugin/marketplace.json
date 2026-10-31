@@ -1,0 +1,13 @@
+{
+  "name": "rubenmarcus",
+  "description": "Engineering skills for evidence, review, research, agent coordination, and AEO.",
+  "owner": { "name": "Ruben Marcus" },
+  "plugins": [
+    {
+      "name": "rubenmarcus-skills",
+      "source": "./",
+      "description": "Engineering workflows with reproducible evidence and explicit acceptance checks.",
+      "category": "development"
+    }
+  ]
+}

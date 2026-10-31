@@ -1,0 +1,24 @@
+{
+  "name": "@rubenmarcus/agent-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Portable engineering skills for coding agents",
+  "license": "MIT",
+  "author": "Ruben Marcus",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "check:hook": "python3 scripts/check-hook.py"
+  },
+  "files": [
+    "plugin.json",
+    ".claude-plugin/",
+    "skills/",
+    "scripts/check.mjs",
+    "scripts/check-hook.py",
+    "evals/scenarios.json",
+    "README.md",
+    "PROVENANCE.md",
+    "LICENSE"
+  ]
+}

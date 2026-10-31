@@ -1,0 +1,3 @@
+interface:
+  display_name: "Quality gates"
+  short_description: "Build checks that fail when the behavior is broken"

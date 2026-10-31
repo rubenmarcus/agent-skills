@@ -1,0 +1,3 @@
+interface:
+  display_name: "AEO with aeo.js"
+  short_description: "Audit and verify machine-readable website discovery"

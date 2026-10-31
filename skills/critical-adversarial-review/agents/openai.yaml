@@ -1,0 +1,3 @@
+interface:
+  display_name: "Critical adversarial review"
+  short_description: "Find concrete failures through independent review"

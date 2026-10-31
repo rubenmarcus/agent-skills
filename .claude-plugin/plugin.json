@@ -1,0 +1,8 @@
+{
+  "name": "rubenmarcus-skills",
+  "version": "0.1.0",
+  "description": "Evidence, review, research, coding loops, agent coordination, Git gates, and AEO workflows.",
+  "author": { "name": "Ruben Marcus" },
+  "license": "MIT",
+  "skills": "./skills/"
+}

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Multi-agent collaboration"
+  short_description: "Coordinate independent agents with reproducible evidence"
