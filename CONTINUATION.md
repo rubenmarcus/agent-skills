@@ -19,7 +19,8 @@ Done for this local preparation: portable skills and plugin manifests, source pr
 
 ## Current state
 
-- Branch: `codex/skills-package-20261031`; repository initialized, no remote configured.
+- Branch: `codex/skills-package-20261031`; no remote configured.
+- Implementation checkpoint: `b78f8872a0406132a1ac9dbd374ff85017f9abcc` (`Add portable agent workflows and article draft`). A following documentation checkpoint records this completion state; use `git log -2 --oneline` to recover both.
 - Inspected Ralph Starter at `ee9c7946c386bb9cecc4001a052e29ffa53f8f9a` (0.5.2).
 - Inspected aeo.js at `9955ce8d9ee77d9ca0c6cd4e26e047a1081697a1` (0.0.17).
 - Confirmed Addy Osmani and Matt Pocock's public collections as distribution references, without copying their skills.
@@ -44,7 +45,7 @@ Done for this local preparation: portable skills and plugin manifests, source pr
 
 ## Next concrete step
 
-Create the scoped Git checkpoint and record its SHA here. Before any public release, review the collection and article, run real-agent evaluations, confirm the destination, and replace local-preview wording only when publication actually happens.
+Local preparation is complete and recoverable in Git. Next: review the collection and article, then execute the documented behavioral scenarios in disposable tasks on Codex and Claude. Before any public release, confirm the destination and release scope, and replace local-preview wording only when publication actually happens.
 
 ## Deferred work
 
