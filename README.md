@@ -24,6 +24,8 @@ Engineering workflows for Codex and Claude Code: trace a bug, challenge a change
 
 Start with the skill that matches the current task. Review, debugging, and quality gates address different failure modes; they do not each need a separate agent. Multi-agent skills apply when parallel work is requested or already authorized.
 
+The [example tasks](#example-tasks) give a scenario, prompt, and expected artifact for all 11 skills.
+
 The collaboration method was generalized from the author's ECDSA work. Planning, validated iteration, and worktree coordination draw on Ralph Starter. AEO uses the actual aeo.js CLI and adapter surface. See [provenance](PROVENANCE.md) for source revisions and distribution references.
 
 ## Install or try one workflow
@@ -92,30 +94,152 @@ The package uses an explicit file list. The companion articles in Brazilian Port
 
 ## Example tasks
 
-Give the selected skill an observable problem and the actual artifacts:
+Each example gives you a situation, a starting prompt, and an artifact to look for. Replace revisions, routes, versions, fixtures, and budgets with your project's inputs. These prompts describe tasks to try; [evaluation scenarios](evals/scenarios.json) track the behavioral checks still to run.
+
+### critical-adversarial-review
+
+Use it before merging an API change, when you need an independent check of pagination and its callers.
 
 ```text
 Use critical-adversarial-review on BASE..HEAD. The endpoint must preserve
 pagination when the filter changes. Read the diff and callers, without
-editing files. Report the trigger, expected and observed behavior, and
-a minimal reproduction. Label unexecuted hypotheses. Zero findings is OK.
+editing files. Report locations, triggers, expected and observed behavior,
+and minimal reproductions. Label unexecuted hypotheses. Zero findings is OK.
 ```
+
+Look for: evidence-backed findings at the reviewed revision, plus coverage limits.
+
+### gauntlet-loop
+
+Use it when improving a game's map lighting needs several rounds of captures, critique, and regression checks.
+
+```text
+Use gauntlet-loop to improve this map's lighting against the supplied
+visual criteria. Keep the same camera path, viewport, and capture settings.
+Record a baseline, compare each candidate with an independent critique,
+and check the other reference scenes. Use the agreed round budget.
+```
+
+Look for: a round record with baseline and candidate captures, regressions, and a keep, revise, or reject decision. Human visual approval stays explicit.
+
+### evidence-driven-debugging
+
+Use it when a dashboard's participant count disagrees with the underlying records.
+
+```text
+Use evidence-driven-debugging on the active-participant count shown here.
+Trace the displayed value through the request, query, stored records,
+and render. Check distinct participants versus event counts and stale
+responses. Reproduce the mismatch, fix its cause, and rerun that path.
+```
+
+Look for: the reproduced failure, its cause, and before/after evidence from the same UI and data path.
+
+### quality-gates
+
+Use it when CI passes even though a checkout regression is still visible.
 
 ```text
 Use quality-gates to assess the existing checkout regression gate.
 In a disposable copy, apply one known-broken change and verify that the
 gate rejects it for the expected reason. Restore the copy afterward.
-Record whether the mutation took effect and what was actually measured.
+Confirm the mutation took effect. Also exercise a missing measurement.
 ```
+
+Look for: results for the valid baseline, the deliberate defect, and unavailable evidence, with the measured behavior and reproduction commands.
+
+### source-backed-research
+
+Use it before choosing a library whose retry behavior could duplicate a write.
 
 ```text
 Use source-backed-research to compare the documented retry semantics
-of these two libraries at the supplied versions. Keep source URLs,
-dates, source claims, and your own inferences in the evidence ledger.
-Report any question the available sources cannot settle.
+of these two libraries at the supplied versions. Check official docs
+and source for write retries and idempotency. Keep URLs, dates, source
+claims, and inferences in the evidence ledger. Report unresolved questions.
 ```
 
-Replace `BASE..HEAD`, versions, and task inputs with your real scope. These are starting prompts; [evaluation scenarios](evals/scenarios.json) record the behavioral checks still to run.
+Look for: a comparison tied to versions and sources, the recommendation's assumptions, and the next check that could change it.
+
+### multi-agent-collaboration
+
+Use it when two agents already investigating an intermittent failure disagree about whether caching or retries cause it.
+
+```text
+Use multi-agent-collaboration to reconcile these two investigations.
+Keep the existing ownership boundaries. Have each agent hand off its
+revision, configuration, exact input, command, result, and artifact paths.
+Choose the smallest experiment that distinguishes their explanations.
+```
+
+Look for: reproducible handoffs, the discriminating experiment, and a shared conclusion that records rejected hypotheses and remaining unknowns.
+
+### spec-to-plan
+
+Use it when an issue says "add team invitations" but leaves expiry, permissions, and repeated acceptance unclear.
+
+```text
+Use spec-to-plan on this team-invitations issue. Inspect the current
+auth and membership contracts. Identify decisions about expiry, roles,
+and repeated acceptance. Write observable acceptance criteria and order
+the implementation slices. Surface product decisions that need an answer.
+```
+
+Look for: a scoped plan with failure cases, dependencies, unresolved decisions, and the first implementable slice.
+
+### validated-coding-loop
+
+Use it when implementing an agreed fix for duplicate webhook delivery requires several code and validation attempts.
+
+```text
+Use validated-coding-loop to implement the approved webhook deduplication
+spec on this branch. Work from the supplied delivery fixtures and checks.
+After each focused change, save the actual diagnostic and checkpoint.
+Meet the acceptance criteria within the agreed budget; diagnose repeated
+failures and preserve the next action if the run stops.
+```
+
+Look for: a recoverable implementation, a record of attempts, and acceptance evidence at the current revision.
+
+### agent-worktree-orchestration
+
+Use it when you've authorized two implementation candidates for a cache change and want to compare them without shared writes.
+
+```text
+Use agent-worktree-orchestration for the two authorized cache candidates.
+Start from the same base commit in separate branches and worktrees.
+Record each writer's allowed paths and budget. Compare both with the
+supplied correctness and latency checks. Return both revisions and the
+selection evidence to one integration owner.
+```
+
+Look for: an ownership map, isolated candidate commits, a comparison using the same inputs, and a verified integration handoff.
+
+### git-quality-hooks
+
+Use it when adding staged secret scanning to a repository that already has Husky or another hook manager.
+
+```text
+Use git-quality-hooks to add staged gitleaks scanning to this repository.
+Inspect core.hooksPath and the existing hook manager first. Preserve its
+checks, redact scanner output, and fail if the scanner is unavailable.
+Verify argument and exit-code propagation with synthetic isolated fixtures.
+```
+
+Look for: a composed hook, setup instructions, and fixture results. The fixture proves hook plumbing; scanner detection needs its own evidence.
+
+### aeo
+
+Use it when an Astro site has English and Portuguese content, existing crawler restrictions, and discovery files that need to agree with real routes.
+
+```text
+Use aeo to audit this site's EN/PT discovery with the pinned aeo.js version.
+Inspect existing robots and sitemap ownership, canonical URLs, and JSON-LD.
+Fix the observed gaps while preserving crawler policy. Build and verify
+the public routes and enabled discovery files on the authorized preview.
+```
+
+Look for: an audit and served-response evidence for canonical URLs, structured data, and discovery files, with remaining gaps recorded.
 
 ## Scope and license
 

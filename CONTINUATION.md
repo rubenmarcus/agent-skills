@@ -66,3 +66,13 @@ Public repository creation and push completed on 2026-10-31 at `https://github.c
 
 - Public verification milestone: a fresh unauthenticated HTTPS clone at `b39c0dc` passed `npm run check` and `npm run check:hook`. GitHub Actions runs `41152451560` (`6b6af62`) and `41152471604` (`b39c0dc`) both completed successfully. Public repo page and files were also inspected in Ego Lite.
 - Paired portfolio content was committed at `26c8ae3`, with its evidence ledger at `a8e4863`. Both language pages, shared cover and language navigation were exercised locally. The portfolio owns its separate PR and deployment status; this collection does not publish the articles.
+
+## Editorial follow-up: title and practical examples (2026-10-31)
+
+- User accepted the collection and requested the article title `The skills I use in every project`, plus examples of where to use every skill in the README. PT-BR title: `As skills que uso em todos os projetos`.
+- Collection baseline: `851ccbcfad20bcf936e7de40d87309b49f41f064`. Added 11 concrete scenarios, copyable prompts, and expected artifacts to each README, with direct links from the workflow catalog. Examples remain trial tasks, separate from completed behavioral evaluation.
+- Scenarios distinguish review, measured improvement rounds, tracing a dashboard count, calibrating a checkout gate, library retry research, peer-agent hypothesis resolution, planning invitations, webhook implementation, isolated cache candidates, staged scanning, and bilingual site discovery.
+- Focused structural validation passed: 11 skills, 31 skill files, manifests, links, and 22 unexecuted evaluation cases. No skill instructions, executable examples, manifests, or hook configuration changed.
+- Portfolio title, descriptions, and both localized social cards updated in its isolated worktree. Existing filenames and language routes remain stable. Portfolio validation and PR #39 own that part of the follow-up.
+- Read-only adversarial review covered both READMEs against all 11 skill contracts and both article metadata/social cards; no actionable findings. Portfolio Astro check passed with 0 errors and 0 warnings. Ego Lite verified the new titles, language switch, canonical/OG metadata, and no page overflow at desktop 1500 and mobile emulation 390.
+- The follow-up checkpoint contains only both READMEs and this ledger; recover its SHA from `git log -1`. Next: verify its public `main` CI after push. Keep production publication and behavioral evaluation as separate follow-up work.
